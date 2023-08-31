@@ -10,4 +10,16 @@ Features:
 ## Example Output
 
 ### SEED 22
-![seed22map](Godot-Room-Generation/Output/pg1.JPG)
+![seed22map](Output/pg1.JPG)
+
+### SEED 22 Debug Mode
+![seed22debug](Output/pg1_debug.JPG)
+
+### SEED 22 Inside
+![seed22inside](Output/pg1_inside.JPG)
+
+### SEED 21
+![seed21map](Output/pg2.JPG)
+
+### SEED 25
+![seed25map](Output/pg3.JPG)
