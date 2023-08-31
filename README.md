@@ -1,6 +1,7 @@
 # Godot Room Generation
 
 Procedurally generated rooms and corridors in 2D and 3D using the Binary Space Partitioning algorithim.
+Uses generic textures for map, it could probably look prettier.
 Programmed for Godot_v3.5.1.
 
 Features:
