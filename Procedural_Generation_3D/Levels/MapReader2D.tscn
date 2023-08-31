@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Blue.png" type="Texture" id=1]
+[ext_resource path="res://Levels/MapReader2D.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 60, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 60, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 60, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 30, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 30, 32, 30 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 30, 32, 30 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "Backwards",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "Forwards",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "Sideways",
+"speed": 5.0
+} ]
+
+[node name="MapReader2D" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -150.0
+margin_right = -256.0
+margin_bottom = -150.0
+script = ExtResource( 2 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 256.0
+margin_bottom = 150.0
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 256, 150 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Map2D" type="Node2D" parent="ViewportContainer/Viewport"]
+
+[node name="MapBackground" type="ColorRect" parent="ViewportContainer/Viewport/Map2D"]
+margin_left = -2000.0
+margin_top = -2000.0
+margin_right = 2000.0
+margin_bottom = 2000.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="PlayerMarker" type="AnimatedSprite" parent="ViewportContainer/Viewport/Map2D"]
+z_index = 1
+frames = SubResource( 11 )
+animation = "Idle"
+playing = true
+
+[node name="Camera2D" type="Camera2D" parent="ViewportContainer/Viewport/Map2D/PlayerMarker"]
+rotating = true
+current = true
+
+[node name="Enviroment" type="Node2D" parent="ViewportContainer/Viewport/Map2D"]
